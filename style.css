@@ -1,0 +1,80 @@
+
+.title{
+	text-transform: uppercase;
+	border: 12px double;
+	border-color: gray;
+	letter-spacing: 3px;
+	width: 70%;
+	display: inline-block;
+	ont-family: fantasy;
+	text-align: center;
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	transform: translate(-50%);
+	animation-name: one;
+	animation-duration: 5s ;
+	animation-iteration-count: infinite;
+	background-image: url(anh-nen2.jpg);
+	background-size: cover;
+}
+.title p{
+	font-size: 20px;
+	padding: 5px;
+
+
+	
+}
+.title span{
+background-size: cover;
+font-size: 50px;
+padding: 20px;
+display: block;
+font:700 4em/1 "oswald",sans-serif ;
+letter-spacing: 8px;
+
+
+
+}
+@keyframes one{
+	0%{ color: #b5c99a;text-shadow: 5px 5px 12px; }
+	20%{ color: #43aa8b;text-shadow: 5px 5px 12px; }
+	40%{color: #caffbf;text-shadow: 5px 5px 12px;}
+	60%{color: #ffb703;text-shadow: 5px 5px 12px;}
+	80%{color:#e76f51 ;text-shadow: 5px 5px 12px;}
+	100%{color: #00bbf9;text-shadow: 5px 5px 12px;}
+}
+.times{
+	position: absolute;
+	top: 50%;
+	left: 42%;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: fantasy;
+	font-size: 35px;
+	margin: 30px;
+
+}
+.time{
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: cursive;
+	transform: translate(-50%);
+
+}
+.notime{
+	display:inline-block;
+	border-radius: 70%;
+	margin-right: 20px;
+	overflow: hidden;
+	padding: 13px;
+	margin: 20px;
+	font-size: 20px;
+}
+.notime span{
+	display: block;
+
+}
