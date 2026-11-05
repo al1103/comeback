@@ -1,59 +1,50 @@
 <!DOCTYPE html>
-<html lang="vi">
-<meta charset="UTF-8">
-<meta name="viewpost" content="width=device-width,initalt-scale:1.0">
-<link rel="stylesheet" type="text/css" href="style.css" />
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>GAME OVER</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div class="title">
-		<p>wellcome to hell
-		<span>game over</span></p>
+<main>
+	<header class="title">
+		<p>Welcome to hell</p>
+		<h1>Game over</h1>
+	</header>
+	<p class="times">Come back</p>
+	<div class="time" role="timer" aria-label="Time remaining">
+		<div class="notime"><span id="days">00</span>Days</div>
+		<div class="notime"><span id="hours">00</span>Hours</div>
+		<div class="notime"><span id="minutes">00</span>Minutes</div>
+		<div class="notime"><span id="seconds">00</span>Seconds</div>
 	</div>
-	<div>
-		<p class="times">come back</p>
-	</div>
-	<div class="time">
-		<div class="notime">
-			<span id="days">00 </span>DAYS
-		</div >
-		<div class="notime">
-			<span id="hours">00 </span>HOURS
-		</div>
-		<div class="notime">
-			<span id="minutes">00 </span>MINUTES
-		</div>
-		<div class="notime">
-			<span id="seconds">00 </span>SECONDS
-		</div>
-	</div>
+	<p id="countdown-status" role="status" hidden>The countdown has ended.</p>
+</main>
+<script>
+var countDownDate = new Date("2022-01-01T00:00:00").getTime();
+var countdownInterval = null;
 
-<script type="text/javascript">
-var countDownDate = new Date("Jan 1, 2022 00:00:00").getTime();
-
-var countdownfunction = setInterval(function() {
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
-  
-
+function updateCountdown() {
+  var distance = Math.max(0, countDownDate - Date.now());
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  
-  document.getElementById("days").innerHTML = days;
-  document.getElementById("hours").innerHTML = hours;
-  document.getElementById("minutes").innerHTML = minutes;
-  document.getElementById("seconds").innerHTML = seconds;
 
- if (d<0) {
- 	clearInterval(x);
- }
+  document.getElementById("days").textContent = String(days).padStart(2, "0");
+  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+  document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+  document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
 
-  
-}, 1000);
+  if (distance === 0) {
+    document.getElementById("countdown-status").hidden = false;
+    if (countdownInterval !== null) clearInterval(countdownInterval);
+  }
+  return distance > 0;
+}
+
+if (updateCountdown()) countdownInterval = setInterval(updateCountdown, 1000);
 </script>
-
 </body>
 </html>
